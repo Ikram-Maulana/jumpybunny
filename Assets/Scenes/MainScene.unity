@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &105037296 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9560166, guid: 62359dbec881e4a0a8ba81638de6e92a, type: 3}
+  m_PrefabInstance: {fileID: 960581383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,11 +268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5891808, guid: 62359dbec881e4a0a8ba81638de6e92a, type: 3}
       propertyPath: m_Radius
-      value: 0.53
+      value: 0.5232421
       objectReference: {fileID: 0}
     - target: {fileID: 5891808, guid: 62359dbec881e4a0a8ba81638de6e92a, type: 3}
       propertyPath: m_Offset.x
-      value: -0.37
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5891808, guid: 62359dbec881e4a0a8ba81638de6e92a, type: 3}
       propertyPath: m_Offset.y
@@ -292,10 +297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8daa05d39eb454297cfad7e6d79b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 10
+  thrust: 20
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 105037296}
 --- !u!58 &1495284669
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -309,9 +315,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.42, y: -0.04}
+  m_Offset: {x: 0.4, y: -0.03}
   serializedVersion: 2
-  m_Radius: 0.55
+  m_Radius: 0.5169117
 --- !u!1001 &1788246184
 PrefabInstance:
   m_ObjectHideFlags: 0

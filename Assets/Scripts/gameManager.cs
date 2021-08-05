@@ -57,6 +57,14 @@ public class GameManager : MonoBehaviour
         currentGameState = GameState.Menu;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("s"))
+        {
+            ChangeGameState(GameState.InGame);
+        }
+    }
+
     // Called when player dies
     public void GameOver()
     {

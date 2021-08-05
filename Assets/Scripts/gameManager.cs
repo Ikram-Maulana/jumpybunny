@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         // print("Today is " + (int) currentDay);
+        playerController.GetInstance().StartGame();
         ChangeGameState(GameState.InGame);
     }
 
@@ -59,9 +60,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("s"))
+        if (currentGameState != GameState.InGame && Input.GetKeyDown("s"))
         {
             ChangeGameState(GameState.InGame);
+            StartGame();
         }
     }
 

@@ -9,6 +9,17 @@ public class playerController : MonoBehaviour
     public LayerMask groundLayerMask;
     public Animator animator;
     public float runSpeed = 3f;
+    private static playerController sharedInstance;
+
+    private void Awake()
+    {
+        sharedInstance = this;
+    }
+
+    public static playerController GetInstance()
+    {
+        return sharedInstance;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -55,5 +66,11 @@ public class playerController : MonoBehaviour
     {
         // return Physic2D.Raycast(yang ditransform adalah position, vector2.u/d, jarak ground dan bunny, masukan layerMask.value);
         return Physics2D.Raycast(transform.position, Vector2.down, 1.0f, groundLayerMask.value);
+    }
+
+    public void KillPlayer()
+    {
+        animator.SetBool("isAlive", false);
+        GameManager.GetInstance().GameOver();
     }
 }

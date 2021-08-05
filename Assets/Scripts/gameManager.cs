@@ -30,10 +30,13 @@ public enum GameState
 public class gameManager : MonoBehaviour
 {
     // Start our game
-    DaysOfTheWeek currentDay = DaysOfTheWeek.Sunday;
+    // DaysOfTheWeek currentDay = DaysOfTheWeek.Sunday;
+    GameState currentGameState = GameState.Menu;
+
     public void StartGame()
     {
-        print("Today is " + (int) currentDay);
+        // print("Today is " + (int) currentDay);
+        ChangeGameState(GameState.InGame);
     }
 
     private void Start()
@@ -44,13 +47,47 @@ public class gameManager : MonoBehaviour
     // Called when player dies
     public void GameOver()
     {
-        
+        ChangeGameState(GameState.GameOver);
     }
 
     // Called when the player decide to quit the game
     // and go to the main menu
     public void BackToMainMenu()
     {
+        ChangeGameState(GameState.Menu);
+    }
 
+    void ChangeGameState(GameState newGameState)
+    {
+        /*if(newGameState == GameState.Menu)
+        {
+            // Lets Load mainmenustate
+        } else if(newGameState == GameState.InGame)
+        {
+            //Unity Scene must show the Real Game
+        } else if(newGameState == GameState.GameOver)
+        {
+            // Lets load end of the game scene
+        } else {
+            currentGameState = GameState.Menu;
+        }
+        */
+
+        switch (newGameState)
+        {
+            case GameState.Menu:
+                // Lets Load main menu scene
+                break;
+            case GameState.InGame:
+                // Unity Scene must show the Real Game
+                break;
+            case GameState.GameOver:
+                // Lets load end of the game scene
+                break;
+            default:
+                currentGameState = GameState.Menu;
+                break;
+        }
+        currentGameState = newGameState;
     }
 }

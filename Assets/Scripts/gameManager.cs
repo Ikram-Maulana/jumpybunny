@@ -24,14 +24,26 @@ public enum GameState
 {
     Menu,
     InGame,
-    GameOver
+    GameOver,
+    Resume
 }
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     // Start our game
     // DaysOfTheWeek currentDay = DaysOfTheWeek.Sunday;
-    GameState currentGameState = GameState.Menu;
+    public GameState currentGameState = GameState.Menu;
+    private static GameManager sharedInstance;
+
+    private void Awake()
+    {
+        sharedInstance = this;
+    }
+
+    public static GameManager GetInstance()
+    {
+        return sharedInstance;
+    }
 
     public void StartGame()
     {
@@ -41,7 +53,8 @@ public class gameManager : MonoBehaviour
 
     private void Start()
     {
-        StartGame();
+        // StartGame();
+        currentGameState = GameState.Menu;
     }
 
     // Called when player dies

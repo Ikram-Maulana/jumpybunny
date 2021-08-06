@@ -267,8 +267,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 483678, guid: cb0d2c6f4f6b14fcc90da94309fb9a75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb0d2c6f4f6b14fcc90da94309fb9a75, type: 3}
+--- !u!1 &305526459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 180170, guid: cb0d2c6f4f6b14fcc90da94309fb9a75, type: 3}
+  m_PrefabInstance: {fileID: 222613323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &305526462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305526459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a32bc5bde220e54ea391212fc613455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &391803306
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391803306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.05, y: -4, z: 0}
+  m_LocalPosition: {x: -12.003, y: -4.998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -331,7 +352,7 @@ MonoBehaviour:
   legoBlocks:
   - {fileID: 997927164}
   initialPoint: {fileID: 391803307}
-  initialBlockNumber: 2
+  initialBlockNumber: 3
 --- !u!4 &397101777
 Transform:
   m_ObjectHideFlags: 0

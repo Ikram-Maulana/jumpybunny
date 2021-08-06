@@ -34,7 +34,7 @@ public class playerController : MonoBehaviour
         //rigidBody = GetComponent<Rigidbody2D>();
         animator.SetBool("isAlive", true);
         transform.position = initialPosition;
-        rigidBody.velocity = initialVelocity;
+        rigidBody.velocity = new Vector2(0,0);
     }
 
     private void FixedUpdate()

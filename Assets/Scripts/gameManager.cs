@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        LevelGenerator.sharedInstance.CreateInitialBlocks();
         // print("Today is " + (int) currentDay);
         playerController.GetInstance().StartGame();
         ChangeGameState(GameState.InGame);
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
     // Called when player dies
     public void GameOver()
     {
+        LevelGenerator.sharedInstance.RemoveAllBlocks();
         ChangeGameState(GameState.GameOver);
     }
 

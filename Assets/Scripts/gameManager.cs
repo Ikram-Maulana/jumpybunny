@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// for canvas
+using UnityEngine.UI;
 
 /**
  * 1) Menu
@@ -34,6 +36,9 @@ public class GameManager : MonoBehaviour
     // DaysOfTheWeek currentDay = DaysOfTheWeek.Sunday;
     public GameState currentGameState = GameState.Menu;
     private static GameManager sharedInstance;
+    public Canvas mainMenu;
+    public Canvas GameMenu;
+    public Canvas GameOverMenu;
 
     private void Awake()
     {
@@ -57,6 +62,9 @@ public class GameManager : MonoBehaviour
     {
         // StartGame();
         currentGameState = GameState.Menu;
+        mainMenu.enabled = true;
+        GameMenu.enabled = false;
+        GameOverMenu.enabled = false;
     }
 
     private void Update()
@@ -102,12 +110,21 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Menu:
                 // Lets Load main menu scene
+                mainMenu.enabled = true;
+                GameMenu.enabled = false;
+                GameOverMenu.enabled = false;
                 break;
             case GameState.InGame:
                 // Unity Scene must show the Real Game
+                mainMenu.enabled = false;
+                GameMenu.enabled = true;
+                GameOverMenu.enabled = false;
                 break;
             case GameState.GameOver:
                 // Lets load end of the game scene
+                mainMenu.enabled = false;
+                GameMenu.enabled = false;
+                GameOverMenu.enabled = true;
                 break;
             default:
                 currentGameState = GameState.Menu;

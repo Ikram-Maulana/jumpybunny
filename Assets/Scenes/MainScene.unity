@@ -397,6 +397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsLabel: {fileID: 1544746821}
+  scoreText: {fileID: 677336487}
+  highestScoreText: {fileID: 420729287}
 --- !u!1001 &222613323
 PrefabInstance:
   m_ObjectHideFlags: 0

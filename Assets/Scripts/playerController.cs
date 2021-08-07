@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour
 
     private Vector3 initialPosition;
     private Vector2 initialVelocity;
+    private const string HIGHEST_SCORE_KEY = "highestScore";
 
     private void Awake()
     {
@@ -81,5 +82,25 @@ public class playerController : MonoBehaviour
     {
         animator.SetBool("isAlive", false);
         GameManager.GetInstance().GameOver();
+        int highestScore = PlayerPrefs.GetInt(HIGHEST_SCORE_KEY);
+        int currentScore = GetDistance();
+        if(currentScore > highestScore)
+        {
+            PlayerPrefs.SetInt(HIGHEST_SCORE_KEY, currentScore);
+        }
+    }
+
+    public int GetDistance()
+    {
+        // Vector2.Distance(initialPosition, position of our bunny)
+        var distance = (int) Vector2.Distance(initialPosition,
+            transform.position);
+        print("distance = " + distance);
+        return distance;
+    }
+
+    public int GetMaxScore()
+    {
+        return PlayerPrefs.GetInt(HIGHEST_SCORE_KEY);
     }
 }

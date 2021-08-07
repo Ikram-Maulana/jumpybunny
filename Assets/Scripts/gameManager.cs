@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
         // print("Today is " + (int) currentDay);
         playerController.GetInstance().StartGame();
         ChangeGameState(GameState.InGame);
+        ViewInGame.GetInstance().ShowHighestScore();
     }
 
     private void Start()
@@ -82,6 +83,7 @@ public class GameManager : MonoBehaviour
     {
         LevelGenerator.sharedInstance.RemoveAllBlocks();
         ChangeGameState(GameState.GameOver);
+        GameOverView.GetInstance().UpdateGUI();
     }
 
     // Called when the player decide to quit the game
@@ -137,6 +139,7 @@ public class GameManager : MonoBehaviour
     public void CollectCoins()
     {
         collectedCoins++;
+        ViewInGame.GetInstance().UpdateCoins();
     }
 
     public int GetCollectedCoins()

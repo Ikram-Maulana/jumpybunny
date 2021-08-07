@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour
 
     private Vector3 initialPosition;
     private Vector2 initialVelocity;
+    private float initialGravity;
     private const string HIGHEST_SCORE_KEY = "highestScore";
 
     private void Awake()
@@ -22,6 +23,7 @@ public class playerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         initialVelocity = rigidBody.velocity;
         animator.SetBool("isAlive", true);
+        initialGravity = rigidBody.gravityScale;
     }
 
     public static playerController GetInstance()
@@ -35,7 +37,8 @@ public class playerController : MonoBehaviour
         //rigidBody = GetComponent<Rigidbody2D>();
         animator.SetBool("isAlive", true);
         transform.position = initialPosition;
-        rigidBody.velocity = new Vector2(0,0);
+        rigidBody.velocity = initialVelocity;
+        rigidBody.gravityScale = initialGravity;
     }
 
     private void FixedUpdate()
@@ -81,13 +84,15 @@ public class playerController : MonoBehaviour
     public void KillPlayer()
     {
         animator.SetBool("isAlive", false);
-        GameManager.GetInstance().GameOver();
         int highestScore = PlayerPrefs.GetInt(HIGHEST_SCORE_KEY);
         int currentScore = GetDistance();
         if(currentScore > highestScore)
         {
             PlayerPrefs.SetInt(HIGHEST_SCORE_KEY, currentScore);
         }
+        rigidBody.gravityScale = 0f;
+        rigidBody.velocity = Vector2.zero;
+        GameManager.GetInstance().GameOver();
     }
 
     public int GetDistance()
